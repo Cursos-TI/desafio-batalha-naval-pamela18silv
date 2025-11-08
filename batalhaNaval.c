@@ -7,9 +7,52 @@
 int main() {
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+    
+    int tabuleiro[10][10];
+    char linha[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+    
+    // 1. Inicializando o tabuleiro com 0:
+    for (int i = 0; i < 10; i++) {  // Loop externo: Linhas (i de 0 a 9)
+        // loop que percorre as COLUNAS
+        for (int j = 0; j < 10; j++) {   // Loop interno: Colunas (j de 0 a 9)
+            tabuleiro[i][j] = 0;         // Atribui 0 à célula
+        }
+    }
 
+    // 2. Exibindo o cabeçalho das colunas:
+    printf("  "); // Espaço inicial para alinhar
+    for (int j = 0; j < 10; j++) {
+        printf("%d ", j + 1);   //Imprimi o número da coluna (1 a 10)
+    }
+    printf("\n"); // Quebra de linha para começar a imprimir o tabuleiro
+    
+    //Definindo navio horinzotal (4 peças)
+    int i_linhahoriz = 7;
+
+
+    for (int j = 1; j <= 4; j++) {
+        tabuleiro[i_linhahoriz][j] = 3;
+    }
+
+    //Navio vertival (3 peças)
+    int j_colunavert = 8;
+
+    for (int i = 1; i <= 3; i++) {
+        tabuleiro[i][j_colunavert] = 3;
+    }
+
+    // 3. Exibindo as linhas:
+    for (int i = 0; i < 10; i++) {    //Loop externo: Linhas
+        printf("%c ", linha[i]);
+
+        //Loop interno: Colunas
+        for (int j = 0; j < 10; j++) {
+            printf("%d ", tabuleiro[i][j]); // Imprime o valor da célula
+        }
+        printf("\n");   //Pula uma linha após a impressão de todas as colunas
+    }
+
+    
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
